@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.view.animation.BounceInterpolator
 import android.view.animation.LinearInterpolator
 import kotlinx.android.synthetic.main.activity_main.*
+import android.animation.AnimatorSet
 
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         animator.start()
 
         //变大、变小
-        val objectAnimator1 = ObjectAnimator.ofInt(myCicleView, "pointRadius", 100, 400, 200, 100)
+        val objectAnimator1 = ObjectAnimator.ofInt(myCicleView, "pointRadius", 30, 60, 50, 30)
         objectAnimator1.duration = 5000
         objectAnimator1.repeatCount = -1
         objectAnimator1.start()
@@ -52,6 +53,27 @@ class MainActivity : AppCompatActivity() {
 //        val rotation = AnimationUtils.loadAnimation(this, R.anim.interpor_animator)
 //        iv_scan.startAnimation(rotation)
 
+        //平移
+        ObjectAnimator.ofFloat(tv_x, "x", 20f, 10f, 50f, 10f, 100f).apply {
+            duration = 3000
+            repeatCount = ObjectAnimator.INFINITE
+
+            start()
+        }
+        //同时移动
+        val animator1 = ObjectAnimator.ofFloat(tv_x_together, "x", 20f, 10f, 50f, 10f, 100f).apply {
+            duration = 3000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode=ObjectAnimator.REVERSE
+        }
+        val animator2 = ObjectAnimator.ofFloat(tv_x_together, "y", 20f, 10f, 50f, 10f, 100f).apply {
+            duration = 3000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode=ObjectAnimator.REVERSE
+        }
+        val animatorSet = AnimatorSet()
+        animatorSet.play(animator1).with(animator2)
+        animatorSet.start()
         //一直旋转
         val hyperspaceJump = AnimationUtils.loadAnimation(this, R.anim.ratation_animator)
         iv_scan.startAnimation(hyperspaceJump)
@@ -67,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             target = tv_quick_color
             duration = 10000
             repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.RESTART
+            repeatMode = ObjectAnimator.REVERSE
             start()
         }
 

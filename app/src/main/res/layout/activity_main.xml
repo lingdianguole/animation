@@ -48,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_press" />
 
+
     <TextView
         android:id="@+id/tv_quick_color"
         android:layout_width="317dp"
@@ -56,6 +57,34 @@
         android:layout_marginEnd="612dp"
         android:gravity="center"
         android:text="快变"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_x"
+        android:layout_width="317dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="396dp"
+        android:layout_marginEnd="212dp"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center"
+        android:text="平移"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_x_together"
+        android:layout_width="317dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="252dp"
+        android:layout_marginEnd="192dp"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center"
+        android:text="同时移动"
+        android:textColor="#fff"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

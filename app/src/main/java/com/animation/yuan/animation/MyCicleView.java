@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class MyCicleView extends View {
-    private Point mPoint=new Point(100);
+    private Point mPoint=new Point(30);
 
     public MyCicleView(Context context) {
         super(context);
